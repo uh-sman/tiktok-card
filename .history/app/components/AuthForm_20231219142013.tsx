@@ -20,17 +20,15 @@ const AuthForm: React.FC = () => {
         console.log(data)
     }
     return (
-        <div className="flex justify-center">
-        <div className="flex justify-center w-full max-w-xxl">
+        <div className="w-full max-w-xl">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="font-bold text-xl text-center">Register</h2>
           <div className="flex flex-col">
             <label>Username</label>
             <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               type="text"
             //   using the hook to handle form state
-            {...register('username')}
+              {...register('username')}
             />
             <div className="invalid-feedback">
                 </div>
@@ -40,8 +38,8 @@ const AuthForm: React.FC = () => {
             <label>Email</label>
             <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            {...register('email')}
+              type="text"
+              {...register('email')}
             />
             <div className="invalid-feedback">
                 </div>
@@ -51,8 +49,8 @@ const AuthForm: React.FC = () => {
             <label>Password</label>
             <input
             className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-            type="password"
-            {...register('password')}
+              type="password"
+              {...register('password')}
             />
             <div className="invalid-feedback">
                 </div>
@@ -81,8 +79,8 @@ const AuthForm: React.FC = () => {
             <label>Bio</label>
             <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            {...register('Bio')}
+              type="text"
+              {...register('Bio')}
             />
             <div className="invalid-feedback">
             </div>
@@ -97,7 +95,7 @@ const AuthForm: React.FC = () => {
             <input
               type="checkbox"
               {...register('male')}
-              />
+            />
            
             </div>
             <div className="">
@@ -105,7 +103,7 @@ const AuthForm: React.FC = () => {
             <input
               type="checkbox"
               {...register('female')}
-              />
+            />
             </div>
             <div className="invalid-feedback">
                 </div>
@@ -114,7 +112,7 @@ const AuthForm: React.FC = () => {
             <input
               type="checkbox"
               {...register('acceptTerms')}
-              />
+            />
             <label htmlFor="acceptTerms" className="form-check-label">
               I have read and agree to the Terms
             </label>
@@ -130,12 +128,11 @@ const AuthForm: React.FC = () => {
               type="button"
               onClick={() => reset()}
               className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
+            >
               Reset
             </button>
           </div>
         </form>
-        </div>
       </div>
     )
 }

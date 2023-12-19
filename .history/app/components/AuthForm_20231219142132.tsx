@@ -21,9 +21,8 @@ const AuthForm: React.FC = () => {
     }
     return (
         <div className="flex justify-center">
-        <div className="flex justify-center w-full max-w-xxl">
+            <div className="w-full max-w-xl">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="font-bold text-xl text-center">Register</h2>
           <div className="flex flex-col">
             <label>Username</label>
             <input
