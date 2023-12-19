@@ -16,8 +16,8 @@ const AuthForm: React.FC = () => {
     const {register,handleSubmit, reset, formState} = useForm<UserSubmitForm>()
     // the onSubmit handler
     const onSubmit = (data: UserSubmitForm) => {
-       const {username, email, password, confirmPassword, acceptTerms, gender , Bio, DateOfBirth} = data
-       if (!username || !email|| !password|| !confirmPassword|| !acceptTerms|| !gender|| !Bio|| !DateOfBirth) {
+       const {username, email, password, confirmPassword, acceptTerms, male, female, Bio, DateOfBirth} = data
+       if (!username || !email|| !password|| !confirmPassword|| !acceptTerms|| !male|| !female|| !Bio|| !DateOfBirth) {
         window.prompt('please fill the required spaces')
        } else {
         console.log(data)

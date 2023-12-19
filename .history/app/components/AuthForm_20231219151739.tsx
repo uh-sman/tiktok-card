@@ -7,7 +7,8 @@ type UserSubmitForm = {
     password: string;
     confirmPassword: string;
     acceptTerms: boolean;
-    gender:boolean;
+    male:boolean;
+    female:boolean;
     Bio:string;
     DateOfBirth: number
   };
@@ -16,13 +17,11 @@ const AuthForm: React.FC = () => {
     const {register,handleSubmit, reset, formState} = useForm<UserSubmitForm>()
     // the onSubmit handler
     const onSubmit = (data: UserSubmitForm) => {
-       const {username, email, password, confirmPassword, acceptTerms, gender , Bio, DateOfBirth} = data
-       if (!username || !email|| !password|| !confirmPassword|| !acceptTerms|| !gender|| !Bio|| !DateOfBirth) {
-        window.prompt('please fill the required spaces')
-       } else {
+        if(data.male && data.female === true) {
+            prompt('only one field can be selected')
+            reset()
+        }
         console.log(data)
-       }
-       console.log(data)
     }
     return (
         <div className="w-full max-w-xl">
@@ -74,7 +73,7 @@ const AuthForm: React.FC = () => {
           <div className="flex flex-col">
             <label>DOB</label>
             <input
-            className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               type="date"
               {...register('DateOfBirth')}
             />
@@ -96,18 +95,16 @@ const AuthForm: React.FC = () => {
            <div className="">
                 <label className="mr-2" htmlFor="Male">Male</label>
             <input
-              type="radio"
-              value='male'
-              {...register('gender')}
+              type="checkbox"
+              {...register('male')}
               />
            
             </div>
             <div className="">
                 <label className="mr-2" htmlFor="Female">Female</label>
             <input
-              type="radio"
-              value='female'
-              {...register('gender')}
+              type="checkbox"
+              {...register('female')}
               />
             </div>
            </div>

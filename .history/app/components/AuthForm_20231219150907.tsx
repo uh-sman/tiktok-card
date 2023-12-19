@@ -7,7 +7,8 @@ type UserSubmitForm = {
     password: string;
     confirmPassword: string;
     acceptTerms: boolean;
-    gender:boolean;
+    male:boolean;
+    female:boolean;
     Bio:string;
     DateOfBirth: number
   };
@@ -16,13 +17,10 @@ const AuthForm: React.FC = () => {
     const {register,handleSubmit, reset, formState} = useForm<UserSubmitForm>()
     // the onSubmit handler
     const onSubmit = (data: UserSubmitForm) => {
-       const {username, email, password, confirmPassword, acceptTerms, gender , Bio, DateOfBirth} = data
-       if (!username || !email|| !password|| !confirmPassword|| !acceptTerms|| !gender|| !Bio|| !DateOfBirth) {
-        window.prompt('please fill the required spaces')
-       } else {
+        if(data.male && data.female === true) {
+            // reset(data)
+        }
         console.log(data)
-       }
-       console.log(data)
     }
     return (
         <div className="w-full max-w-xl">
@@ -82,9 +80,10 @@ const AuthForm: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-col">
-            <label className="font-semibold">Bio:</label>
-            <textarea
-            className="shadow appearance-none border rounded w-full py-8 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            <label>Bio</label>
+            <input
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            type="text"
             {...register('Bio')}
             />
             <div className="invalid-feedback">
@@ -92,22 +91,23 @@ const AuthForm: React.FC = () => {
           </div>
   
           <div className="">
-           <div className="flex items-center gap-4 text-md font-bold">
+          <label htmlFor="gender" className="font-md">
+              gender
+            </label>
+           <div className="flex items-center gap-4">
            <div className="">
                 <label className="mr-2" htmlFor="Male">Male</label>
             <input
-              type="radio"
-              value='male'
-              {...register('gender')}
+              type="checkbox"
+              {...register('male')}
               />
            
             </div>
             <div className="">
                 <label className="mr-2" htmlFor="Female">Female</label>
             <input
-              type="radio"
-              value='female'
-              {...register('gender')}
+              type="checkbox"
+              {...register('female')}
               />
             </div>
            </div>
@@ -126,11 +126,17 @@ const AuthForm: React.FC = () => {
                 </div>
           </div>
   
-          <div className="flex justify-center w-full gap-20">
-            <button type="submit" className="bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-4 px-4 rounded focus:outline-none focus:shadow-outline">
+          <div className="flex justify-center gap-20">
+            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Register
             </button>
-           
+            <button
+              type="button"
+              onClick={() => reset()}
+              className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              >
+              Reset
+            </button>
           </div>
         </form>
       </div>

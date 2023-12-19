@@ -7,7 +7,8 @@ type UserSubmitForm = {
     password: string;
     confirmPassword: string;
     acceptTerms: boolean;
-    gender:boolean;
+    male:boolean;
+    female:boolean;
     Bio:string;
     DateOfBirth: number
   };
@@ -16,8 +17,8 @@ const AuthForm: React.FC = () => {
     const {register,handleSubmit, reset, formState} = useForm<UserSubmitForm>()
     // the onSubmit handler
     const onSubmit = (data: UserSubmitForm) => {
-       const {username, email, password, confirmPassword, acceptTerms, gender , Bio, DateOfBirth} = data
-       if (!username || !email|| !password|| !confirmPassword|| !acceptTerms|| !gender|| !Bio|| !DateOfBirth) {
+       const {username, email, password, confirmPassword, acceptTerms, male, female, Bio, DateOfBirth} = data
+       if (!username || !email|| !password|| !confirmPassword|| !acceptTerms|| !male|| !female|| !Bio|| !DateOfBirth) {
         window.prompt('please fill the required spaces')
        } else {
         console.log(data)
@@ -97,8 +98,7 @@ const AuthForm: React.FC = () => {
                 <label className="mr-2" htmlFor="Male">Male</label>
             <input
               type="radio"
-              value='male'
-              {...register('gender')}
+              {...register('male')}
               />
            
             </div>
@@ -106,8 +106,7 @@ const AuthForm: React.FC = () => {
                 <label className="mr-2" htmlFor="Female">Female</label>
             <input
               type="radio"
-              value='female'
-              {...register('gender')}
+              {...register('female')}
               />
             </div>
            </div>
