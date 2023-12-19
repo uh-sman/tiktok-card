@@ -1,7 +1,6 @@
 'use client'
 // import Input from "./components/Input";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import AuthForm from "./components/AuthForm";
 type FormValues = {
   name: string,
       email: string,
@@ -16,7 +15,7 @@ type FormValues = {
 export default function Home() {
   return (
     <div>
-      <AuthForm />
+      hello
     </div>
   )
 }
