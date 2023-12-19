@@ -14,18 +14,15 @@ type UserSubmitForm = {
   };
 const AuthForm: React.FC = () => {
     // using the useForm hook from the react-hook-form package
-    const {register,handleSubmit, reset,formState} = useForm<UserSubmitForm>()
+    const {register,handleSubmit, reset} = useForm<UserSubmitForm>()
     // the onSubmit handler
     const onSubmit = (data: UserSubmitForm) => {
-        if(data.male && data.female === true) {
-            reset()
-        }
         console.log(data)
     }
     return (
         <div className="w-full max-w-xl">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="font-bold text-gray-900 text-2xl text-center">Register</h2>
+        <h2 className="font-bold text-xl text-center">Register</h2>
           <div className="flex flex-col">
             <label>Username</label>
             <input

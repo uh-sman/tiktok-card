@@ -8,18 +8,15 @@ type UserSubmitForm = {
     confirmPassword: string;
     acceptTerms: boolean;
     male:boolean;
-    female:boolean;
+    gender:boolean;
     Bio:string;
     DateOfBirth: number
   };
 const AuthForm: React.FC = () => {
     // using the useForm hook from the react-hook-form package
-    const {register,handleSubmit, reset,formState} = useForm<UserSubmitForm>()
+    const {register,handleSubmit, reset} = useForm<UserSubmitForm>()
     // the onSubmit handler
     const onSubmit = (data: UserSubmitForm) => {
-        if(data.male && data.female === true) {
-            reset()
-        }
         console.log(data)
     }
     return (
@@ -99,7 +96,7 @@ const AuthForm: React.FC = () => {
                 <label className="mr-2" htmlFor="Male">Male</label>
             <input
               type="checkbox"
-              {...register('male')}
+              {...register('gender')}
               />
            
             </div>
@@ -107,7 +104,7 @@ const AuthForm: React.FC = () => {
                 <label className="mr-2" htmlFor="Female">Female</label>
             <input
               type="checkbox"
-              {...register('female')}
+              {...register('gender')}
               />
             </div>
            </div>

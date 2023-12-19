@@ -14,7 +14,7 @@ type UserSubmitForm = {
   };
 const AuthForm: React.FC = () => {
     // using the useForm hook from the react-hook-form package
-    const {register,handleSubmit, reset,formState} = useForm<UserSubmitForm>()
+    const {register,handleSubmit, reset} = useForm<UserSubmitForm>()
     // the onSubmit handler
     const onSubmit = (data: UserSubmitForm) => {
         if(data.male && data.female === true) {
