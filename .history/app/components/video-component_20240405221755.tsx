@@ -139,7 +139,7 @@ const VideoComponent = () => {
   };
   
   return (
-    <div className="min-h-screen w-full flex justify-center items-center">
+    <div className="h-[100vh] w-full flex justify-center items-center">
       <div className="max-w-xl w-full bg-white rounded-lg shadow-lg">
         {data.map((item) => (
           <div key={item.id} className="p-4">
@@ -150,7 +150,7 @@ const VideoComponent = () => {
                 autoPlay
                 loop
                 muted
-                className="w-full h-[75vh] object-cover"
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-end pr-2">
                 {/* Custom play button */}
