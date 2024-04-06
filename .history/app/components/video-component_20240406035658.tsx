@@ -153,9 +153,9 @@ const VideoComponent = () => {
 
                 className="w-full h-[100vh] object-cover"
               />
-              <div className="absolute inset-0 flex items-center pt-96 justify-end pr-2">
+              <div className="absolute inset-0 flex items-center justify-end pr-2">
                 {/* Custom play button */}
-                <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-col items-center justify-end gap-4">
                   <svg
                     width="15"
                     height="15"
