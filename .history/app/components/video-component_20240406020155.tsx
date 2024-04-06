@@ -130,7 +130,7 @@ const VideoComponent = () => {
     },
   ];
 
-  const handleTrim = (value: any) => {
+  const handleTrim = (value: string): string => {
     if (value.length > 100) {
       return value.slice(0, 3) + "k";
     } else {
@@ -151,7 +151,7 @@ const VideoComponent = () => {
                 loop
                 muted
 
-                className="w-full h-[100vh] object-cover"
+                className="w-full h-[80vh] object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-end pr-2">
                 {/* Custom play button */}
