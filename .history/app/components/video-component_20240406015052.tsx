@@ -150,8 +150,7 @@ const VideoComponent = () => {
                 autoPlay
                 loop
                 muted
-                
-                className="w-full h-[80vh] object-cover"
+                className="w-full h-[75%] object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-end pr-2">
                 {/* Custom play button */}
